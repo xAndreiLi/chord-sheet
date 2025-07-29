@@ -17,7 +17,6 @@ export function GuitarFretboard({ chordData, position }: GuitarFretboardProps) {
   const baseFret = position.baseFret || 1;
 
   // Find the highest fret used (for dynamic fret range)
-  const maxFret = Math.max(...position.frets.filter(f => f > 0), baseFret + frets - 1);
   const minFret = baseFret;
   const fretRange = Array.from({ length: frets }, (_, i) => minFret + i);
 
@@ -30,7 +29,7 @@ export function GuitarFretboard({ chordData, position }: GuitarFretboardProps) {
       <div className={styles.horizontalFretboardWrapper}>
         {/* String names at the top */}
         <div className={styles.stringNamesRow}>
-          {STRING_NAMES.map((name, idx) => (
+          {STRING_NAMES.map((name) => (
             <div key={name} className={styles.stringNameCell}>{name}</div>
           ))}
         </div>
@@ -45,7 +44,7 @@ export function GuitarFretboard({ chordData, position }: GuitarFretboardProps) {
         {/* Fretboard grid */}
         <div className={styles.horizontalFretboard}>
           {/* For each fret (row) */}
-          {fretRange.map((fretNum, fretIdx) => (
+          {fretRange.map((fretNum) => (
             <div key={fretNum} className={styles.fretRow}>
               {/* Render the horizontal fret line for the whole row */}
               <div className={styles.fretLineHorizontal} />
