@@ -1,0 +1,77 @@
+/* Transposition Section */
+.transpositionSection {
+  background: var(--foreground);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.transpositionSection h2 {
+  margin: 0 0 1.5rem 0;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Transposition Controls */
+.transpositionControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.transposeButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--surface);
+  color: var(--secondary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transposeButton:hover {
+  background: var(--background);
+}
+
+.transpositionDisplay {
+  background: #f8f9fa;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 60px;
+  text-align: center;
+  border: 2px solid #e1e5e9;
+}
+
+.resetButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--background);
+  color: var(--secondary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.resetButton:hover {
+  background: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .transpositionControls {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .transpositionSection {
+    padding: 1rem;
+  }
+} 

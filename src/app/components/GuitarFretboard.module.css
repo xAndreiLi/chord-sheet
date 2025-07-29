@@ -1,0 +1,205 @@
+/* Guitar Fretboard */
+.fretboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fretboardHeader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chordName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.positionInfo {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* Horizontal Fretboard Layout */
+.horizontalFretboardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.stringNamesRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  margin-bottom: 0.1rem;
+}
+
+.stringNameCell {
+  flex: 0 0 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary);
+  letter-spacing: 1px;
+}
+
+.nutRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.nutCell {
+  flex: 0 0 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--secondary);
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open {
+  color: var(--secondary);
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.horizontalFretboard {
+  display: flex;
+  flex-direction: column;
+  border-left: 3px solid var(--secondary);
+  border-right: 3px solid var(--secondary);
+  background: var(--foreground);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.fretRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 38px;
+  position: relative;
+}
+
+.fretCell {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stringLineVertical {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--secondary);
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fretLineHorizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #bbb;
+  z-index: 0;
+  /* pointer-events: none; */
+}
+
+.finger {
+  position: relative;
+  z-index: 2;
+  background: var(--secondary);
+  color: var(--foreground);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(102,126,234,0.10);
+  pointer-events: none;
+}
+
+.finger.barre {
+  background: var(--secondary);
+  border-radius: 8px;
+  width: 32px;
+  height: 22px;
+}
+
+.muted {
+  color: var(--secondary);
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+/* Responsive for horizontal fretboard */
+@media (max-width: 768px) {
+  .horizontalFretboardWrapper {
+    margin: 0.25rem 0 0.25rem 0;
+  }
+  .stringNameCell, .nutCell, .fretCell {
+    width: 28px;
+    flex-basis: 28px;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  .fretRow {
+    height: 28px;
+  }
+  .finger {
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+  }
+  .finger.barre {
+    width: 22px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stringNameCell, .nutCell, .fretCell {
+    width: 18px;
+    flex-basis: 18px;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  .fretRow {
+    height: 20px;
+  }
+  .finger {
+    width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
+  }
+  .finger.barre {
+    width: 16px;
+    height: 10px;
+  }
+} 
