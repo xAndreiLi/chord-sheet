@@ -1,17 +1,8 @@
-// Chord data structure matching the JSON format
-export type Key =
-  | "C"
-  | "C#"
-  | "D"
-  | "Eb"
-  | "E"
-  | "F"
-  | "F#"
-  | "G"
-  | "Ab"
-  | "A"
-  | "Bb"
-  | "B";
+export type BaseKey = "C" | "D" | "E" | "F" | "G" | "A" | "B";
+
+export type Accidental = "b" | "#";
+
+export type Key = BaseKey | `${BaseKey}${Accidental}`;
 
 export type Suffix =
   | "major"
@@ -133,5 +124,7 @@ export interface ChordDatabase {
 
 export interface Chord {
   key: Key;
+  altKey?: Key;
   suffix: Suffix;
+  isAlt?: boolean;
 }

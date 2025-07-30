@@ -1,0 +1,89 @@
+.chordColumn {
+  position: relative;
+  flex: 0 0 300px;
+  min-width: 300px;
+  background: var(--background);
+  border-radius: 12px;
+  padding: 0, 1.5rem, 1.5rem, 1.5rem;
+  border: 1px solid var(--secondary);
+}
+
+.chordColumnHeader {
+  padding-top: 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--secondary);
+}
+
+.chordColumnHeader h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.chordColumnHeader button {
+  position: absolute;
+  right: 5%;
+  top: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  border-radius: 20%;
+  background: var(--foreground);
+  border: 1px solid var(--secondary);
+  transition: 150ms;
+}
+
+.chordColumnHeader button:hover {
+  background: var(--secondary);
+}
+
+.chordPositions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chordColumn {
+    flex: 0 0 280px;
+    min-width: 280px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chordDisplay {
+    padding: 1rem;
+  }
+
+  .chordColumn {
+    flex: 0 0 260px;
+    min-width: 260px;
+    padding: 0.75rem;
+  }
+
+  .chordColumnHeader h3 {
+    font-size: 1.25rem;
+  }
+}
+
+.chordPlaceholder {
+  background: var(--background);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  border: 2px dashed var(--secondary);
+  color: var(--secondary);
+}
+
+.chordPlaceholder span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
