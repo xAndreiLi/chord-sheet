@@ -55,6 +55,7 @@ export function ChordColumn({ baseChord, index }: ChordCardProps) {
       className={styles.chordColumn}
       dragListener={false}
       dragControls={dragControls}
+      layout="position"
     >
       <div className={styles.chordColumnHeader} onPointerDown={startDrag}>
         <h3>
