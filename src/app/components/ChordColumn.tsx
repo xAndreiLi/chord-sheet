@@ -1,5 +1,5 @@
 import { useDragControls, useMotionValue, Reorder } from "motion/react";
-import { PointerEventHandler, useState } from "react";
+import { PointerEventHandler, useEffect, useState } from "react";
 import { useChordContext } from "../context/ChordContext";
 import { useDataContext } from "../context/DataContext";
 import { Chord } from "../types";
@@ -25,7 +25,7 @@ export function ChordColumn({ baseChord, index }: ChordCardProps) {
   const suffix = getSuffixName(chord.suffix);
   const matchingChord = chordData.find((c) => c.suffix === chord.suffix);
 
-  const initialPositions = matchingChord!.positions.filter(
+  const positionData = matchingChord!.positions.filter(
     (position, posIndex, positions) => {
       // Keep only positions with unique frets arrays
       const currentFrets = JSON.stringify(position.frets);
@@ -36,7 +36,11 @@ export function ChordColumn({ baseChord, index }: ChordCardProps) {
     }
   );
 
-  const [positions, setPositions] = useState(initialPositions);
+  const [positions, setPositions] = useState(positionData);
+
+  useEffect(() => {
+    setPositions(positionData);
+  }, [transposition]);
 
   const dragControls = useDragControls();
   const startDrag: PointerEventHandler<HTMLDivElement> = (e) => {
