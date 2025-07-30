@@ -1,5 +1,7 @@
 /* Chord Input Section */
 .inputSection {
+  width: 48%;
+  margin-right: 2%;
   background: var(--foreground);
   border-radius: 16px;
   padding: 2rem;
@@ -7,11 +9,30 @@
   backdrop-filter: blur(10px);
 }
 
-.inputSection h2 {
+.headingSelect {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.headingSelect li {
+  position: relative;
+  display: inline-block;
   margin: 0 0 1.5rem 0;
+}
+
+.headingSelect a {
+  font-size: 24px;
+  font-weight: 550;
+  z-index: 2;
+}
+
+.selected {
+  color: var(--primary);
+}
+
+.notSelected {
   color: var(--secondary);
-  font-size: 1.5rem;
-  font-weight: 600;
 }
 
 /* Chord Input */
@@ -33,7 +54,7 @@
   font-size: 1rem;
   transition: border-color 0.2s ease;
   color: var(--primary);
-  min-width: 20%;
+  min-width: 20rem;
 }
 
 .chordInputField:focus {
@@ -42,7 +63,6 @@
 }
 
 .suffixSelect {
-  padding: 0.75rem 1rem;
   border: 2px solid var(--surface);
   border-radius: 8px;
   font-size: 1rem;
@@ -65,7 +85,7 @@
 }
 
 .addButton {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   background: var(--surface);
   color: var(--secondary);
   border: none;
@@ -97,4 +117,4 @@
   .inputSection {
     padding: 1rem;
   }
-} 
+}

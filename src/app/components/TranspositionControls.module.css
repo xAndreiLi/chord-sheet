@@ -1,5 +1,5 @@
-/* Transposition Section */
 .transpositionSection {
+  width: 50%;
   background: var(--foreground);
   border-radius: 16px;
   padding: 2rem;
@@ -38,14 +38,14 @@
 }
 
 .transpositionDisplay {
-  background: #f8f9fa;
+  background: var(--accent);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.1rem;
   min-width: 60px;
   text-align: center;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--foreground);
 }
 
 .resetButton {
@@ -74,4 +74,4 @@
   .transpositionSection {
     padding: 1rem;
   }
-} 
+}

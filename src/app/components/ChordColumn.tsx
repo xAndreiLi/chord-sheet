@@ -1,4 +1,4 @@
-import { useDragControls, useMotionValue, Reorder } from "motion/react";
+import { useDragControls, Reorder } from "motion/react";
 import { PointerEventHandler, useEffect, useState } from "react";
 import { useChordContext } from "../context/ChordContext";
 import { useDataContext } from "../context/DataContext";

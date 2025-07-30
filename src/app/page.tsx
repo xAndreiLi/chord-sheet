@@ -27,8 +27,10 @@ export default function Page() {
           </header>
 
           <main className={styles.main}>
-            <ChordInput />
-            <TranspositionControls />
+            <div className={styles.inputRow}>
+              <ChordInput />
+              <TranspositionControls />
+            </div>
             <ChordDisplay />
           </main>
         </div>
