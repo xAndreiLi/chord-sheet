@@ -50,7 +50,7 @@ export function ChordColumn({ baseChord, index }: ChordCardProps) {
 
   return (
     <Reorder.Item
-      key={baseChord.key}
+      key={baseChord.key + baseChord.suffix}
       value={baseChord}
       className={styles.chordColumn}
       dragListener={false}

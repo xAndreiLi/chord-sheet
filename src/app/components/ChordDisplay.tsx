@@ -30,7 +30,7 @@ export function ChordDisplay() {
           <ChordColumn
             baseChord={baseChord}
             index={index}
-            key={baseChord.key}
+            key={baseChord.key + baseChord.suffix}
           />
         ))}
       </Reorder.Group>

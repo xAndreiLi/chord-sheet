@@ -16,10 +16,13 @@ export function ChordInput() {
   const {
     state: { chords },
     addChord,
+    setChords,
   } = useChordContext();
   const [inputType, setInputType] = useState<InputType>("Chord");
   const [newChord, setNewChord] = useState("");
   const [newSuffix, setNewSuffix] = useState<Suffix>("major");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Check input against database Keys and generate available suffixes
   const inputKey = newChord as Key;
@@ -42,6 +45,41 @@ export function ChordInput() {
         setNewSuffix("major");
       }
     }
+  };
+
+  const handleSongSubmit = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    const response = await fetch("/api/readChords", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url: newChord.trim() }),
+    });
+
+    setChords([]);
+    setIsLoading(false);
+
+    const data = await response.json();
+
+    data.chords.forEach((chordString: string) => {
+      let key: Key;
+      let suffix: Suffix;
+
+      if (chordString.includes("m")) {
+        key = chordString.replace("m", "") as Key;
+        suffix = "minor";
+      } else {
+        key = chordString as Key;
+        suffix = "major";
+      }
+
+      addChord(createChord(key, suffix));
+    });
+
+    setNewChord("");
   };
 
   return (
@@ -154,13 +192,9 @@ export function ChordInput() {
                 onChange={(e) => setNewChord(e.target.value)}
                 placeholder="Enter YouTube Link"
                 className={styles.chordInputField}
-                onKeyDown={(e) => e.key === "Enter" && handleChordSubmit()}
+                onKeyDown={(e) => e.key === "Enter" && handleSongSubmit()}
               />
-              <button
-                onClick={handleChordSubmit}
-                className={styles.addButton}
-                disabled={availableSuffixes.length === 0}
-              >
+              <button onClick={handleSongSubmit} className={styles.addButton}>
                 Generate Chords
               </button>
             </motion.div>
